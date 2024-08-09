@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration page using javascript</title>
+    
+<style>
+.nameerror,.emailerror,.phoneerror,.passworderror,.cpassworderror,#validpassword{
+
+    color:red;
+    display:none;
+}
+
+
+</style>
+
+</head>
+<body>
+    <h1>Registeration page</h1>
+    <form action="">
+        <table>
+    <tr><td><label>Name</label></td>         <td><input type="text" id="name"></td>    <td class="nameerror">Please enter a valid name</td></tr>
+    <tr><td><label>Email</label></td>         <td><input type="email" id="email"></td>  <td class="emailerror">Please enter a valid Email</td></tr>
+    <tr><td><label>Phone</label> </td>        <td><input type="number" id="phone"></td> <td class="phoneerror">Please enter valid phone number</td></tr>
+    <tr><td><label>Password</label></td>      <td><input type="password" id="password"></td> <td class="passworderror">Please enter valid password </td></tr>
+    <tr><td><label>Confirm Password</label></td>  <td><input type="password" id="cpassword"></td>  <td class="cpassworderror">Please enter valid cpassword</td></tr>
+</table>
+
+    <input type="submit" id="submit">
+    <p id="validpassword">Password and confirm password not same</p>
+    </form>
+
+</body>
+
+<script>
+    submit=document.getElementById("submit")
+submit.addEventListener("click",function(){
+    
+    event.preventDefault()
+    var nameregex=/^[A-Za-z]*/
+     
+    var emailregex=/^[a-zA-Z0-9]+@gmail\.com/
+    var phoneregex=/^[0-9]{9}/ 
+    var passwordregex=/[\w]/ 
+   
+    var name=document.getElementById("name")
+    var email=document.getElementById("email")
+    var phone=document.getElementById("phone")
+    var password=document.getElementById("password")
+    var cpassword=document.getElementById("cpassword")
+   
+    if(nameregex.test(name.value)==true)
+    {
+   
+        document.querySelector(".nameerror").style.display="none"
+    }else
+    {
+        document.querySelector(".nameerror").style.display="inline"
+    }
+    if(emailregex.test(email.value)==true)
+    {
+   
+        document.querySelector(".emailerror").style.display="none"
+    }else
+    {
+        document.querySelector(".emailerror").style.display="inline"
+    }
+
+    if(phoneregex.test(phone.value)==true)
+    {
+   
+        document.querySelector(".phoneerror").style.display="none"
+    }else
+    {
+        document.querySelector(".phoneerror").style.display="inline"
+    }
+
+    if(passwordregex.test(password.value)==true)
+    {
+   
+        document.querySelector(".passworderror").style.display="none"
+    }else 
+    {
+        document.querySelector(".passworderror").style.display="inline"
+    }
+    
+    if(passwordregex.test(cpassword.value)==true)
+    {
+   
+        document.querySelector(".cpassworderror").style.display="none"
+    }else 
+    {
+        document.querySelector(".cpassworderror").style.display="inline"
+    }
+
+    if(password.value==cpassword.value){
+      document.getElementById("validpassword").style.display="none"
+    }
+    else{
+       document.getElementById("validpassword").style.display="inline"
+    }
+
+})
+
+
+
+
+    </script>
+
+
+</html>
+
+
+
